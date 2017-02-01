@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="NodeJSServicePkg" Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+   <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="NodeJSServiceType" UseImplicitHost="true">
+   </StatelessServiceType>
+   </ServiceTypes>
+   
+   <CodePackage Name="code" Version="1.0.0">
+      <EntryPoint>
+         <ContainerHost>
+            <ImageName>kaybusprysm/policy</ImageName>
+            <Commands></Commands>
+         </ContainerHost>
+      </EntryPoint>
+      <EnvironmentVariables>
+                <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
+                <EnvironmentVariable Name="BackendServiceName" Value=""/>
+            </EnvironmentVariables>
+   </CodePackage>
+   <Resources>
+            <Endpoints>
+                <Endpoint Name="Endpoint1" UriScheme="http" Port="8087" Protocol="http"/>
+            </Endpoints>
+        </Resources>
+ </ServiceManifest>
